@@ -32,5 +32,8 @@ void ListContainer::expand()
 /* Virtual Functions */
 void ListContainer::add_element(Base* element)
 {
-    ;
+    if (sz + 1 >= capacity)
+        expand();
+    list[sz] = element;
+    sz += 1;
 }
