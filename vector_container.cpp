@@ -16,7 +16,15 @@ void VectorContainer::add_element(Base* element) { this->v.push_back(element); }
 void VectorContainer::print() { for(int i = 0; i < v.size(); ++i) { v.at(i)->stringify(); } }
 
 // calls on the previously set sorting-algorithm. Checks if sort_function is not null, throw exception if otherwise
-void VectorContainer::sort() { if (this->sort_function == nullptr) { throw; } this->sort_function->sort(this); }
+void VectorContainer::sort() 
+{ 
+    std::string error = "Uninitialized sort_function pointer";
+    if (this->sort_function == nullptr) 
+        throw error;
+    
+    this->sort_function->sort(this);
+
+}
 
 /* Essentially the only functions needed to sort */
 //switch tree locations
