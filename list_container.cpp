@@ -52,3 +52,10 @@ void ListContainer::sort()
 
     sort_function->sort(this);        
 }
+
+void ListContainer::swap(int i, int j)
+{
+    Base* temp = list[i];
+    list[i] = list[j];
+    list[j] = temp;
+}
