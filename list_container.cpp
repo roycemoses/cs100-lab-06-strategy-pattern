@@ -19,4 +19,18 @@ void ListContainer::set_sort_function(Sort* sort_function)
     this->sort_function = sort_function;
 }
 
+void ListContainer::expand()
+{
+    capacity *= 2;
+    Base** temp = new Base*[capacity];
+    for (int i = 0; i < this->sz; ++i)
+        temp[i] = list[i];
+    delete [] list;
+    list = temp;
+}
+
 /* Virtual Functions */
+void ListContainer::add_element(Base* element)
+{
+    ;
+}
