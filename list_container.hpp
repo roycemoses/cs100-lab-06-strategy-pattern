@@ -7,8 +7,8 @@
 class ListContainer : public Container {
     protected:
         Sort* sort_function;
-        Base* list;
-        int size;
+        Base** list;
+        int sz;
         int capacity;
 
     public:
