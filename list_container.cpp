@@ -67,3 +67,8 @@ Base* ListContainer::at(int i)
         throw error;
     return list[i];
 }
+
+int ListContainer::size()
+{
+    return sz;
+}
