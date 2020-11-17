@@ -1,6 +1,11 @@
 #include "list_container.hpp"
 
-void ListContainer::set_sort_function(Sort* sort_function)
+/* Constructors */
+ListContainer::ListContainer() : sort_function(nullptr)
 {
-    this->sort_function = sort_function;
+    ;
 }
+
+/* Non Virtual Functions */
+
+/* Virtual Functions */
