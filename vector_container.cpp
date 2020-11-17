@@ -17,3 +17,7 @@ void VectorContainer::print() { for(int i = 0; i < v.size(); ++i) { v.at(i)->str
 
 // calls on the previously set sorting-algorithm. Checks if sort_function is not null, throw exception if otherwise
 void VectorContainer::sort() { if (this->sort_function == nullptr) { throw; } this->sort_function->sort(this); }
+
+/* Essentially the only functions needed to sort */
+//switch tree locations
+void VectorContainer::swap(int i, int j) { Base* temp = v.at(i); v.at(i) = v.at(j); v.at(j) = temp; }
