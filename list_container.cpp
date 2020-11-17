@@ -59,3 +59,11 @@ void ListContainer::swap(int i, int j)
     list[i] = list[j];
     list[j] = temp;
 }
+
+Base* ListContainer::at(int i)
+{
+    std::out_of_range error("Out of range");
+    if (i < 0 || i > sz - 1)
+        throw error;
+    return list[i];
+}
