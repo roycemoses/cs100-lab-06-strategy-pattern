@@ -2,10 +2,15 @@
 #define __VECTOR_CONTAINER_HPP__
 
 #include "container.hpp"
+#include <vector>
+#include "base.hpp"
+
+using std::vector;
 
 class VectorContainer: public Container {
     protected:
         Sort* sort_function;
+        vector<Base*> v;
 
     public:
         /* Constructors */
