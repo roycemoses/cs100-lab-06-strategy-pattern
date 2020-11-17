@@ -3,6 +3,7 @@
 
 #include "container.hpp"
 #include "base.hpp"
+#include <stdexcept>
 
 class ListContainer : public Container {
     protected:
