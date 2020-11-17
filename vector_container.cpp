@@ -24,3 +24,6 @@ void VectorContainer::swap(int i, int j) { Base* temp = v.at(i); v.at(i) = v.at(
 
 // get top ptr of tree at index i
 Base* VectorContainer::at(int i) { return v.at(i); }
+
+// return container size
+int VectorContainer::size() { return v.size(); }
