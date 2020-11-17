@@ -7,3 +7,7 @@ VectorContainer::VectorContainer(Sort* function) : sort_function(function) { }
 
 /* Non Virtual Functions */
 void VectorContainer::set_sort_function(Sort* sort_function) { this->sort_function = sort_function; }
+
+/* Virtual Functions */
+// push the top pointer of the tree into container
+void VectorContainer::add_element(Base* element) { this->v.push_back(element); }
