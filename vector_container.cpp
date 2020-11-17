@@ -11,3 +11,6 @@ void VectorContainer::set_sort_function(Sort* sort_function) { this->sort_functi
 /* Virtual Functions */
 // push the top pointer of the tree into container
 void VectorContainer::add_element(Base* element) { this->v.push_back(element); }
+
+// iterate through trees and output the expressions (use stringify())
+void VectorContainer::print() { for(int i = 0; i < v.size(); ++i) { v.at(i)->stringify(); } }
