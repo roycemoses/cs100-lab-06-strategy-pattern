@@ -37,3 +37,9 @@ void ListContainer::add_element(Base* element)
     list[sz] = element;
     sz += 1;
 }
+
+void ListContainer::print()
+{
+    for (int i = 0; i < sz; ++i)
+        list[i]->stringify();
+}
