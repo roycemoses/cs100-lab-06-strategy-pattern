@@ -21,3 +21,6 @@ void VectorContainer::sort() { if (this->sort_function == nullptr) { throw; } th
 /* Essentially the only functions needed to sort */
 //switch tree locations
 void VectorContainer::swap(int i, int j) { Base* temp = v.at(i); v.at(i) = v.at(j); v.at(j) = temp; }
+
+// get top ptr of tree at index i
+Base* VectorContainer::at(int i) { return v.at(i); }
