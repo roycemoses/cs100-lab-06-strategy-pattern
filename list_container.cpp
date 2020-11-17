@@ -43,3 +43,12 @@ void ListContainer::print()
     for (int i = 0; i < sz; ++i)
         list[i]->stringify();
 }
+
+void ListContainer::sort()
+{
+    std::string error = "Uninitialized sort_function pointer";
+    if (sort_function == nullptr)
+        throw error;
+
+    sort_function->sort(this);        
+}
