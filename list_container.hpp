@@ -2,10 +2,14 @@
 #define __LIST_CONTAINER_HPP__
 
 #include "container.hpp"
+#include "base.hpp"
 
 class ListContainer : public Container {
     protected:
         Sort* sort_function;
+        Base* list;
+        int size;
+        int capacity;
 
     public:
         /* Constructors */
