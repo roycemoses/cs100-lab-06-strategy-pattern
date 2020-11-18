@@ -27,4 +27,19 @@ TEST(VectorContainerTests, DefaultConstructorVCSizeTest) {
 //     });
 // }
 
+
+TEST(VectorContainerTest, SortAfterDefaultConstructorTest) {
+    Container* vc = new VectorContainer();
+    EXPECT_THROW(
+    try {
+        vc->sort();
+    }
+    catch (std::invalid_argument& ia) {
+        EXPECT_STREQ("Uninitialized sort_function pointer", ia.what());
+        throw;
+    }, std::invalid_argument);
+    EXPECT_EQ(vc->size(), 0);
+}
+
+
 #endif // __CONTAINER_AND_SORT_TESTS_HPP__
