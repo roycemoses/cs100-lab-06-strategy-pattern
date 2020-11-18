@@ -29,7 +29,6 @@ class ListContainer : public Container {
         ~ListContainer();
 
         /* Non Virtual Functions */
-        void set_sort_function(Sort* sort_function); // set the type of sorting algorithm
         void expand();
 
         /* Virtual Functions */
