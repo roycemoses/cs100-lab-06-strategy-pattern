@@ -17,9 +17,6 @@ class VectorContainer: public Container {
         VectorContainer() : Container() { };
         VectorContainer(Sort* function) : Container() { };
 
-        /* Non Virtual Functions */
-        void set_sort_function(Sort* sort_function); // set the type of sorting algorithm
-
         /* Virtual Functions */
         // push the top pointer of the tree into container
         virtual void add_element(Base* element);
