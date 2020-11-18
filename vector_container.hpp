@@ -3,20 +3,19 @@
 
 #include "container.hpp"
 #include <vector>
-#include "base.hpp"
 #include <stdexcept>
+#include <iostream>
 
 using std::vector;
 
 class VectorContainer: public Container {
     protected:
-        Sort* sort_function;
         vector<Base*> v;
 
     public:
         /* Constructors */
-        VectorContainer() : sort_function(nullptr) { };
-        VectorContainer(Sort* function) : sort_function(function) { };
+        VectorContainer() : Container() { };
+        VectorContainer(Sort* function) : Container() { };
 
         /* Non Virtual Functions */
         void set_sort_function(Sort* sort_function); // set the type of sorting algorithm

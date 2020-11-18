@@ -6,7 +6,7 @@
 class SelectionSort : public Sort {
     public:
         /* Constructors */
-        SelectionSort();
+        SelectionSort() : Sort() { };
 
         /* Pure Virtual Functions */
         virtual void sort(Container* container);
