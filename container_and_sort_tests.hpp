@@ -21,6 +21,11 @@ TEST(VectorContainerTests, DefaultConstructorTest) {
     EXPECT_EQ(vc->size(), 0);
 }
 
+TEST(VectorContainerTests, ConstructorWithSelectionSortTest) {
+    Container* vc = new VectorContainer(new SelectionSort());
+    EXPECT_EQ(vc->size(), 0);
+}
+
 // TEST(VectorContainerTests, AtAfterDefaultConstructorTest) {
 //     Container* vc = new VectorContainer();
 //     EXPECT_THROW(
