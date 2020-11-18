@@ -19,4 +19,12 @@ TEST(ListContainerTests, NoArgumentConstructor)
     EXPECT_EQ(list->size(), 0);
 }
 
+TEST(ListContainerTests, ConstructorTestWithBubbleSortFunction)
+{
+    Sort* sort_function = new BubbleSort();
+    Container* list = new ListContainer(sort_function);
+    
+    EXPECT_EQ(list->size(), 0);
+}
+
 #endif // CONTAINER_AND_SORT_TESTS_HPP
