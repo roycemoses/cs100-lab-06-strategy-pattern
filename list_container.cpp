@@ -5,12 +5,6 @@ ListContainer::~ListContainer()
     delete [] list;
 }
 
-/* Non Virtual Functions */
-void ListContainer::set_sort_function(Sort* sort_function)
-{
-    this->sort_function = sort_function;
-}
-
 void ListContainer::expand()
 {
     capacity *= 2;
