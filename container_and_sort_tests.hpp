@@ -6,30 +6,10 @@
 #include "selection_sort.hpp"
 
 
-TEST(VectorContainerTests, DefaultConstructorVCSizeTest) {
+TEST(VectorContainerTests, DefaultConstructorTest) {
     Container* vc = new VectorContainer();
     EXPECT_EQ(vc->size(), 0);
-}
 
-
-// TEST(VectorContainerTest, SortAfterDefaultConstructorTest) {
-//     Container* vc = new VectorContainer();
-//     std::string error = "Uninitialized sort_function pointer";
-//     EXPECT_ANY_THROW({
-//         try {
-//             vc->sort();
-//         }
-//         catch (char** str[])
-//         {
-//             EXPECT_STREQ(error, str);
-//             throw;
-//         }
-//     });
-// }
-
-
-TEST(VectorContainerTest, SortAfterDefaultConstructorTest) {
-    Container* vc = new VectorContainer();
     EXPECT_THROW(
     try {
         vc->sort();
@@ -40,6 +20,19 @@ TEST(VectorContainerTest, SortAfterDefaultConstructorTest) {
     }, std::invalid_argument);
     EXPECT_EQ(vc->size(), 0);
 }
+
+// TEST(VectorContainerTests, AtAfterDefaultConstructorTest) {
+//     Container* vc = new VectorContainer();
+//     EXPECT_THROW(
+//     try {
+//         vc->at(0);
+//     }
+//     catch (std::out_of_range& ofr) {
+//         EXPECT_STREQ("Uninitialized sort_function pointer", ofr.what());
+//         throw;
+//     }, std::out_of_range);
+//     EXPECT_EQ(vc->size(), 0);
+// }
 
 
 #endif // __CONTAINER_AND_SORT_TESTS_HPP__
