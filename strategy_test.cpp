@@ -1,4 +1,5 @@
 #include "gtest/gtest.h"
+
 #include "container_and_sort_tests.hpp"
 
 int main(int argc, char **argv) {
