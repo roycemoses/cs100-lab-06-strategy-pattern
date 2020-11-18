@@ -97,4 +97,26 @@ TEST(VectorContainerTests, AtTest) {
     }, std::out_of_range);
 }
 
+TEST(VectorContainerTests, SizeTest) {
+    Container* vc = new VectorContainer();
+
+    EXPECT_EQ(vc->size(), 0);    
+
+    Base* op0 = new Op(0);
+    Base* op1 = new Op(1);
+    Base* op2 = new Op(2);  
+
+    vc->add_element(op0);
+
+    EXPECT_EQ(vc->size(), 1);  
+
+    vc->add_element(op1);
+
+    EXPECT_EQ(vc->size(), 2);  
+    
+    vc->add_element(op2);
+
+    EXPECT_EQ(vc->size(), 3);  
+}
+
 #endif // __CONTAINER_AND_SORT_TESTS_HPP__
