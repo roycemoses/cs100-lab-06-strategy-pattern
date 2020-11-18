@@ -29,7 +29,6 @@ TEST(ListContainerTests, NoArgumentConstructor)
     }, std::invalid_argument);
 }
 
-
 TEST(VectorContainerTests, DefaultConstructorTest) {
     Container* vc = new VectorContainer();
     
@@ -175,7 +174,6 @@ TEST(VectorContainerTests, PrintTest) {
     vc->print();
 }
 
-
 TEST(VectorContainerTests, SwapTest) {
     Container* vc = new VectorContainer();
     Base* op0 = new Op(0);
@@ -239,7 +237,8 @@ TEST(VectorContainerTests, SizeTest) {
     EXPECT_EQ(vc->size(), 3);  
 }
 
-TEST(SortTestSet, ListContainerSelectionSortTest) {
+
+TEST(SortTestSet, ListContainerBubbleSortTest) {
     Op* seven = new Op(7);
     Op* four = new Op(4);
     Mult* TreeA = new Mult(seven, four);
@@ -252,7 +251,7 @@ TEST(SortTestSet, ListContainerSelectionSortTest) {
     Op* six = new Op(6);
     Sub* TreeC = new Sub(ten, six);
 
-    ListContainer* container = new ListContainer();
+    Container* container = new ListContainer();
     container->add_element(TreeA);
     container->add_element(TreeB);
     container->add_element(TreeC);
@@ -262,7 +261,39 @@ TEST(SortTestSet, ListContainerSelectionSortTest) {
     EXPECT_EQ(container->at(1)->evaluate(), 5);
     EXPECT_EQ(container->at(2)->evaluate(), 4);
 
-    container->set_sort_function(new SelectionSort());
+    container->set_sort_function(new BubbleSort());
+    container->sort();
+
+    ASSERT_EQ(container->size(), 3);
+    EXPECT_EQ(container->at(0)->evaluate(), 4);
+    EXPECT_EQ(container->at(1)->evaluate(), 5);
+    EXPECT_EQ(container->at(2)->evaluate(), 28);
+}
+
+TEST(SortTestSet, VectorContainerBubbleSortTest) {
+    Op* seven = new Op(7);
+    Op* four = new Op(4);
+    Mult* TreeA = new Mult(seven, four);
+
+    Op* three = new Op(3);
+    Op* two = new Op(2);
+    Add* TreeB = new Add(three, two);
+
+    Op* ten = new Op(10);
+    Op* six = new Op(6);
+    Sub* TreeC = new Sub(ten, six);
+
+    Container* container = new VectorContainer();
+    container->add_element(TreeA);
+    container->add_element(TreeB);
+    container->add_element(TreeC);
+
+    ASSERT_EQ(container->size(), 3);
+    EXPECT_EQ(container->at(0)->evaluate(), 28);
+    EXPECT_EQ(container->at(1)->evaluate(), 5);
+    EXPECT_EQ(container->at(2)->evaluate(), 4);
+
+    container->set_sort_function(new BubbleSort());
     container->sort();
 
     ASSERT_EQ(container->size(), 3);
@@ -284,7 +315,39 @@ TEST(SortTestSet, VectorContainerSelectionSortTest) {
     Op* six = new Op(6);
     Sub* TreeC = new Sub(ten, six);
 
-    VectorContainer* container = new VectorContainer();
+    Container* container = new VectorContainer();
+    container->add_element(TreeA);
+    container->add_element(TreeB);
+    container->add_element(TreeC);
+
+    ASSERT_EQ(container->size(), 3);
+    EXPECT_EQ(container->at(0)->evaluate(), 28);
+    EXPECT_EQ(container->at(1)->evaluate(), 5);
+    EXPECT_EQ(container->at(2)->evaluate(), 4);
+
+    container->set_sort_function(new SelectionSort());
+    container->sort();
+
+    ASSERT_EQ(container->size(), 3);
+    EXPECT_EQ(container->at(0)->evaluate(), 4);
+    EXPECT_EQ(container->at(1)->evaluate(), 5);
+    EXPECT_EQ(container->at(2)->evaluate(), 28);
+}
+
+TEST(SortTestSet, ListContainerSelectionSortTest) {
+    Op* seven = new Op(7);
+    Op* four = new Op(4);
+    Mult* TreeA = new Mult(seven, four);
+
+    Op* three = new Op(3);
+    Op* two = new Op(2);
+    Add* TreeB = new Add(three, two);
+
+    Op* ten = new Op(10);
+    Op* six = new Op(6);
+    Sub* TreeC = new Sub(ten, six);
+
+    Container* container = new ListContainer();
     container->add_element(TreeA);
     container->add_element(TreeB);
     container->add_element(TreeC);
