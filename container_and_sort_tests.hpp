@@ -4,6 +4,7 @@
 #include "gtest/gtest.h"
 #include "vector_container.hpp"
 #include "selection_sort.hpp"
+#include "op.hpp"
 
 
 TEST(VectorContainerTests, DefaultConstructorTest) {
@@ -24,6 +25,13 @@ TEST(VectorContainerTests, DefaultConstructorTest) {
 TEST(VectorContainerTests, ConstructorWithSelectionSortTest) {
     Container* vc = new VectorContainer(new SelectionSort());
     EXPECT_EQ(vc->size(), 0);
+}
+
+TEST(VectorContainerTests, AddOpElementTest) {
+    Container* vc = new VectorContainer();
+    Base* op = new Op(1);
+    vc->add_element(op);
+    EXPECT_EQ(vc->size(), 1);
 }
 
 // TEST(VectorContainerTests, AtAfterDefaultConstructorTest) {
