@@ -29,7 +29,6 @@ TEST(ListContainerTests, ConstructorTestWithBubbleSortFunction)
     EXPECT_EQ(list->size(), 0);
 }
 
-
 TEST(ListContainerTests, AddElement)
 {
     Sort* sort_function = new BubbleSort();
@@ -77,6 +76,16 @@ TEST(ListContainerTests, At)
     EXPECT_EQ(list->at(0)->evaluate(), 1);
     EXPECT_EQ(list->at(1)->evaluate(), 3);
     EXPECT_EQ(list->at(2)->evaluate(), 2);
+
+    EXPECT_THROW(
+        try{
+            list->at(5);
+        }
+        catch (std::out_of_range& error) {
+            EXPECT_STREQ("Out of range", error.what());
+            throw;
+        }
+    , std::out_of_range);
 }
 
 TEST(ListContainerTests, Swap)
