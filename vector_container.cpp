@@ -17,9 +17,9 @@ void VectorContainer::print()
 // calls on the previously set sorting-algorithm. Checks if sort_function is not null, throw exception if otherwise
 void VectorContainer::sort() 
 { 
-    std::string error = "Uninitialized sort_function pointer";
+    std::invalid_argument ia("Uninitialized sort_function pointer");
     if (this->sort_function == nullptr) 
-        throw error;
+        throw ia;
     
     this->sort_function->sort(this);
 
