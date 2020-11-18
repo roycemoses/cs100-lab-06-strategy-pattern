@@ -61,4 +61,22 @@ TEST(ListContainerTests, Print)
     list->print();
 }
 
+TEST(ListContainerTests, At)
+{
+    Sort* sort_function = new BubbleSort();
+    Container* list = new ListContainer(sort_function);
+
+    Base* oneOp = new Op(1);
+    Base* twoOp = new Op(2);
+    Base* add = new Add(oneOp, twoOp);
+
+    list->add_element(oneOp);
+    list->add_element(add);
+    list->add_element(twoOp);
+
+    EXPECT_EQ(list->at(0)->evaluate(), 1);
+    EXPECT_EQ(list->at(1)->evaluate(), 3);
+    EXPECT_EQ(list->at(2)->evaluate(), 2);
+}
+
 #endif // CONTAINER_AND_SORT_TESTS_HPP
