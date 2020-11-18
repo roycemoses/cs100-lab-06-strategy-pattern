@@ -5,6 +5,8 @@
 #include "vector_container.hpp"
 #include "selection_sort.hpp"
 #include "op.hpp"
+#include "add.hpp"
+#include "mult.hpp"
 
 
 TEST(VectorContainerTests, DefaultConstructorTest) {
@@ -32,6 +34,25 @@ TEST(VectorContainerTests, AddOpElementTest) {
     Base* op = new Op(1);
     vc->add_element(op);
     EXPECT_EQ(vc->size(), 1);
+}
+
+TEST(VectorContainerTests, PrintTest) {
+    Container* vc = new VectorContainer();
+    Base* op1 = new Op(1);
+    Base* op5 = new Op(5);
+    Base* op8 = new Op(8);
+    Base* op9 = new Op(9);
+    Base* add = new Add(op1, op5);
+    Base* mult = new Mult(op8, op9);
+    Base* add2 = new Add(add, mult);
+
+
+    vc->add_element(op1);
+    vc->add_element(op5);
+    vc->add_element(mult);
+    vc->add_element(add2);
+
+    vc->print();
 }
 
 // TEST(VectorContainerTests, AtAfterDefaultConstructorTest) {
