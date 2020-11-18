@@ -73,18 +73,28 @@ TEST(VectorContainerTests, SwapTest) {
     EXPECT_EQ(vc->at(2)->evaluate(), 0);
 }
 
-// TEST(VectorContainerTests, AtAfterDefaultConstructorTest) {
-//     Container* vc = new VectorContainer();
-//     EXPECT_THROW(
-//     try {
-//         vc->at(0);
-//     }
-//     catch (std::out_of_range& ofr) {
-//         EXPECT_STREQ("Uninitialized sort_function pointer", ofr.what());
-//         throw;
-//     }, std::out_of_range);
-//     EXPECT_EQ(vc->size(), 0);
-// }
+TEST(VectorContainerTests, AtTest) {
+    Container* vc = new VectorContainer();
+    Base* op0 = new Op(0);
+    Base* op1 = new Op(1);
+    Base* op2 = new Op(2);
 
+    vc->add_element(op0);
+    vc->add_element(op1);
+    vc->add_element(op2);
+
+    EXPECT_EQ(vc->at(0)->evaluate(), 0);
+    EXPECT_EQ(vc->at(1)->evaluate(), 1);
+    EXPECT_EQ(vc->at(2)->evaluate(), 2);
+
+    EXPECT_THROW(
+    try {
+        vc->at(3);
+    }
+    catch (std::out_of_range& oor) {
+        EXPECT_STREQ("vector::_M_range_check: __n (which is 3) >= this->size() (which is 3)", oor.what());
+        throw;
+    }, std::out_of_range);
+}
 
 #endif // __CONTAINER_AND_SORT_TESTS_HPP__
