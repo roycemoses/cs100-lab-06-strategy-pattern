@@ -4,6 +4,7 @@
 #include "gtest/gtest.h"
 #include "list_container.hpp"
 #include "bubble_sort.hpp"
+#include "op.hpp"
 
 TEST(ListContainerTests, NoArgumentConstructor)
 {
@@ -26,5 +27,6 @@ TEST(ListContainerTests, ConstructorTestWithBubbleSortFunction)
     
     EXPECT_EQ(list->size(), 0);
 }
+
 
 #endif // CONTAINER_AND_SORT_TESTS_HPP

@@ -1,5 +1,7 @@
 #include "bubble_sort.hpp"
 
+BubbleSort::BubbleSort() {}
+
 void BubbleSort::sort(Container* container)
 {
     bool swapped = true;
