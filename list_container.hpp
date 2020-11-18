@@ -4,6 +4,7 @@
 #include "container.hpp"
 #include "base.hpp"
 #include <stdexcept>
+#include <iostream>
 
 class ListContainer : public Container {
     protected:

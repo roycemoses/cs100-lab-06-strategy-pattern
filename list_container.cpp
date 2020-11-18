@@ -32,8 +32,14 @@ void ListContainer::add_element(Base* element)
 
 void ListContainer::print()
 {
+    std::string output;
     for (int i = 0; i < sz; ++i)
-        list[i]->stringify();
+    {
+        output += list[i]->stringify();
+        if (i != sz - 1)
+            output += ", ";
+    }
+    std::cout << output << std::endl;
 }
 
 void ListContainer::sort()

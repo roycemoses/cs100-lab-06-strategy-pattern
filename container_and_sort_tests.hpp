@@ -5,6 +5,7 @@
 #include "list_container.hpp"
 #include "bubble_sort.hpp"
 #include "op.hpp"
+#include "add.hpp"
 
 TEST(ListContainerTests, NoArgumentConstructor)
 {
@@ -42,7 +43,22 @@ TEST(ListContainerTests, AddElement)
 
     list->add_element(twoOp);
     EXPECT_EQ(list->size(), 2);
+}
 
+TEST(ListContainerTests, Print)
+{
+    Sort* sort_function = new BubbleSort();
+    Container* list = new ListContainer(sort_function);
+
+    Base* oneOp = new Op(1);
+    Base* twoOp = new Op(2);
+    Base* add = new Add(oneOp, twoOp);
+
+    list->add_element(oneOp);
+    list->add_element(add);
+    list->add_element(twoOp);
+
+    list->print();
 }
 
 #endif // CONTAINER_AND_SORT_TESTS_HPP
