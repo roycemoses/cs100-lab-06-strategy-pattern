@@ -4,6 +4,7 @@
 #include "container.hpp"
 #include <vector>
 #include <stdexcept>
+#include <iostream>
 
 using std::vector;
 
