@@ -2,18 +2,19 @@
 
 void SelectionSort::sort(Container* container)
 {
-    int min = 0;
-    Base* min_ptr = container->at(0);
-    for (int i = 0; i < container->size() - 2; ++i)
+    int minIndex = 0;
+    Base* ptr;
+    for (int i = 0; i < container->size() - 1; ++i)
     {
+        ptr = container->at(i);
         for (int j = i + 1; j < container->size(); ++j)
         {
-            if (container->at(j)->evaluate() < min_ptr->evaluate())
+            if (container->at(j)->evaluate() < ptr->evaluate())
             {
-                min = j;
-                min_ptr = container->at(j);
+                minIndex = j;
+                ptr = container->at(j);
             }
         }
-        container->swap(i, min);
+        container->swap(i, minIndex);
     }
 }
