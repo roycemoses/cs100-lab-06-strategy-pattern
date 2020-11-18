@@ -99,4 +99,16 @@ TEST(ListContainerTests, Swap)
     EXPECT_EQ(list->at(2)->evaluate(), 3);
 }
 
+TEST(ListContainerTests, SizeFunction)
+{
+    Sort* sort_function = new BubbleSort();
+    Container* list = new ListContainer(sort_function);
+
+    Base* oneOp = new Op(1);
+
+    for (int i = 1; i <= 12; ++i)
+        list->add_element(oneOp);
+    EXPECT_EQ(list->size(), 12);
+}
+
 #endif // CONTAINER_AND_SORT_TESTS_HPP
