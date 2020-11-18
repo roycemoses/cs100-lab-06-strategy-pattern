@@ -29,4 +29,20 @@ TEST(ListContainerTests, ConstructorTestWithBubbleSortFunction)
 }
 
 
+TEST(ListContainerTests, AddElement)
+{
+    Sort* sort_function = new BubbleSort();
+    Container* list = new ListContainer(sort_function);
+    
+    EXPECT_EQ(list->size(), 0);
+
+    Base* twoOp = new Op(2);
+    list->add_element(twoOp);
+    EXPECT_EQ(list->size(), 1);
+
+    list->add_element(twoOp);
+    EXPECT_EQ(list->size(), 2);
+
+}
+
 #endif // CONTAINER_AND_SORT_TESTS_HPP
