@@ -7,15 +7,25 @@
 
 class ListContainer : public Container {
     protected:
-        Sort* sort_function;
         Base** list;
         int sz;
         int capacity;
 
     public:
         /* Constructors */
-        ListContainer() : sort_function(nullptr) { };
-        ListContainer(Sort* function) : sort_function(function) { };
+        ListContainer() : Container()
+        {
+            sz = 0;
+            capacity = 1;
+            list = new Base*[capacity];
+        }
+        ListContainer(Sort* function) : Container()
+        {
+            sz = 0;
+            capacity = 1;
+            list = new Base*[capacity];
+        }
+        ~ListContainer();
 
         /* Non Virtual Functions */
         void set_sort_function(Sort* sort_function); // set the type of sorting algorithm

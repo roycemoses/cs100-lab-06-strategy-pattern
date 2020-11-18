@@ -1,16 +1,8 @@
 #include "list_container.hpp"
-
 /* Constructors */
-ListContainer::ListContainer() : sort_function(nullptr)
+ListContainer::~ListContainer()
 {
-    ;
-}
-
-ListContainer::ListContainer(Sort* function) : sort_function(function)
-{
-    sz = 0;
-    capacity = 1;
-    list = new Base*[capacity];
+    delete [] list;
 }
 
 /* Non Virtual Functions */
@@ -46,9 +38,10 @@ void ListContainer::print()
 
 void ListContainer::sort()
 {
-    std::string error = "Uninitialized sort_function pointer";
+    std::invalid_argument ia("Uninitialized sort_function pointer");
+
     if (sort_function == nullptr)
-        throw error;
+        throw ia;
 
     sort_function->sort(this);        
 }

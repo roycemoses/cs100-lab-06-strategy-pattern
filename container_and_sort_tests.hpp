@@ -8,7 +8,15 @@
 TEST(ListContainerTests, NoArgumentConstructor)
 {
     Container* list = new ListContainer();
-    EXPECT_TRUE(list->sort_function == nullptr);
+    EXPECT_THROW(
+    try {
+        list->sort();
+    }
+    catch (std::invalid_argument& ia) {
+        EXPECT_STREQ("Uninitialized sort_function pointer", ia.what());
+        throw;
+    }, std::invalid_argument);
+    EXPECT_EQ(list->size(), 0);
 }
 
 #endif // CONTAINER_AND_SORT_TESTS_HPP
