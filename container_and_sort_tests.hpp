@@ -55,6 +55,24 @@ TEST(VectorContainerTests, PrintTest) {
     vc->print();
 }
 
+
+TEST(VectorContainerTests, SwapTest) {
+    Container* vc = new VectorContainer();
+    Base* op0 = new Op(0);
+    Base* op1 = new Op(1);
+    Base* op2 = new Op(2);
+
+    vc->add_element(op0);
+    vc->add_element(op1);
+    vc->add_element(op2);
+
+    vc->swap(0, 2);
+
+    EXPECT_EQ(vc->at(0)->evaluate(), 2);
+    EXPECT_EQ(vc->at(1)->evaluate(), 1);
+    EXPECT_EQ(vc->at(2)->evaluate(), 0);
+}
+
 // TEST(VectorContainerTests, AtAfterDefaultConstructorTest) {
 //     Container* vc = new VectorContainer();
 //     EXPECT_THROW(
