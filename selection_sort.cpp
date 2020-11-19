@@ -3,18 +3,16 @@
 void SelectionSort::sort(Container* container)
 {
     int minIndex = 0;
-    Base* ptr;
     for (int i = 0; i < container->size() - 1; ++i)
     {
-        ptr = container->at(i);
+        minIndex = i;
         for (int j = i + 1; j < container->size(); ++j)
         {
-            if (container->at(j)->evaluate() < ptr->evaluate())
+            if (container->at(j)->evaluate() < container->at(minIndex)->evaluate())
             {
                 minIndex = j;
-                ptr = container->at(j);
             }
         }
-        container->swap(i, minIndex);
+        container->swap(minIndex, i);
     }
 }
